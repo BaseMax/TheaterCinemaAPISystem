@@ -50,7 +50,8 @@ These features provide a high-level overview of the functionality offered by the
 **Clone the repository:**
 
 ```bash
-git clone https://github.com/BaseMax/CinemaGraphQLAPI.git
+git clone https://github.com/BaseMax/TheaterCinemaAPISystem.git
+cd TheaterCinemaAPISystem
 ```
 
 **Change to the project directory:**
