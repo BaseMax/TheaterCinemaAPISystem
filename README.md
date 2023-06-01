@@ -65,6 +65,46 @@ go run main.go
 
 Open a web browser and visit http://localhost:8080.
 
+## API Routes
+
+API routes for your Theater and Cinema System:
+
+### Category Routes
+
+- `GET /categories`: Retrieve all categories.
+- `POST /categories`: Add a new category.
+- `PUT /categories/{categoryId}`: Edit a category.
+- `DELETE /categories/{categoryId}`: Delete a category.
+
+### Movie Routes
+
+- `GET /movies`: Retrieve all movies.
+- `POST /movies`: Add a new movie.
+- `PUT /movies/{movieId}`: Edit a movie.
+- `DELETE /movies/{movieId}`: Delete a movie.
+- `PUT /movies/{movieId}/active`: Activate or deactivate a movie in the cinema.
+
+### Hall Routes
+
+- `GET /halls`: Retrieve all halls.
+- `POST /halls`: Create a new hall.
+- `PUT /halls/{hallId}`: Edit a hall.
+- `DELETE /halls/{hallId}`: Delete a hall.
+
+### Movie Schedule Routes
+
+- `POST /movies/{movieId}/schedule`: Set the time and date for a movie.
+- `GET /movies/{movieId}/schedule`: Retrieve the schedule for a movie.
+
+In addition to the API routes, you'll need to enforce the following rules:
+
+- Ensure that two movies cannot be scheduled in the same hall at the same time.
+- Allow one movie to be scheduled in multiple halls at the same time.
+
+To enforce these rules, you can add validation logic in the respective route handlers for scheduling movies.
+
+Make sure to implement proper authentication and authorization mechanisms to secure your API routes and restrict access as needed.
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please create an issue or submit a pull request.
