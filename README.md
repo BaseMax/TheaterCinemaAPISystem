@@ -1,4 +1,4 @@
-# Theater and Cinema GraphQL System
+# Theater and Cinema API System
 
 The Theater and Cinema System is a software application that provides a comprehensive solution for managing theater and cinema operations. It allows users to manage movie screenings, ticket sales, seat reservations, customer data, and other related functionalities.
 
