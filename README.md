@@ -4,13 +4,33 @@ The Theater and Cinema System is a software application that provides a comprehe
 
 ## Features
 
-- Movie Management: Admins can add, update, and delete movie information, including title, description, duration, genre, and showtimes.
-- Screen Management: Admins can manage screens and their seating arrangements, including the number of seats and their availability.
-- Showtime Management: Admins can create and schedule movie showtimes for different screens.
-- Ticket Sales: Customers can browse available movies and showtimes, select seats, and purchase tickets securely.
-- Seat Reservation: Customers can reserve seats for upcoming movie screenings.
-- Customer Management: Admins can manage customer information, including personal details, purchase history, and loyalty program status.
-- Reporting: Generate reports on ticket sales, movie popularity, and other relevant metrics.
+**Category Management:**
+
+- Manage categories by adding, editing, and deleting them.
+- Retrieve a list of all categories.
+
+**Movie Management:**
+
+- Add new movies to the system.
+- Edit movie details such as title, description, and genre.
+- Delete movies from the system.
+- Activate or deactivate movies for screening in the cinema.
+- Retrieve a list of all movies.
+
+**Hall Management:**
+
+- Create new halls with defined seating capacity.
+- Edit hall details, such as the number of seats.
+- Delete halls from the system.
+- Retrieve a list of all halls.
+
+**Movie Schedule Management:**
+
+- Set the date and time for movie screenings.
+- Assign movies to specific halls and schedule them accordingly.
+- Retrieve the schedule for a particular movie.
+
+These features provide a high-level overview of the functionality offered by the Theater and Cinema System. You can further enhance and expand upon these features based on your specific requirements.
 
 ## Technologies Used
 
