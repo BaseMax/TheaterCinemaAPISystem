@@ -7,12 +7,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 /*
 * ----show  all category  resoult json 
 */
-
-
 func Category_index(c *gin.Context) {
 		var categories []models.Categories
 		initializers.DB.Find(&categories)
@@ -24,10 +21,10 @@ func Category_index(c *gin.Context) {
 	})
 
 }
+
 /*
 * ----create category  resoult json 
 */
-
 func Category_create(c *gin.Context){
 		var body struct{
 			Title string
@@ -46,10 +43,10 @@ func Category_create(c *gin.Context){
 		"message": "create data",
 	})
 }
+
 /*
 * ----show category use id resoult json 
 */
-
 func Category_show(c *gin.Context){
 
 		// get id
@@ -65,10 +62,10 @@ func Category_show(c *gin.Context){
 			"data": category,
 		})
 }
+
 /*
 * ----update category use id resoult json 
 */
-
 func Category_update(c *gin.Context){
 
 		// get id
@@ -96,6 +93,7 @@ func Category_update(c *gin.Context){
 			"data": categories,
 		})
 }
+
 /*
 * ----delete category use id resoult json 
 */
