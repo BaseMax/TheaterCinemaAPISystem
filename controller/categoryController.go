@@ -96,3 +96,22 @@ func Category_update(c *gin.Context){
 			"data": categories,
 		})
 }
+/*
+* ----delete category use id resoult json 
+*/
+func Category_delete(c *gin.Context){
+	// get id
+	id := c.Param("id")
+	
+	//find category 
+	var categories models.Categories
+	initializers.DB.Delete(&categories,id)
+
+	//resolte
+	c.JSON(200, gin.H{
+		"status":true,
+		"message": "delete data id : "+id,
+	
+	})
+	
+}

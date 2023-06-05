@@ -21,6 +21,7 @@ import (
 			r.GET("/categories/:id", controller.Category_show)
 			r.POST("/categories", controller.Category_create)
 			r.PUT("/categories/:id", controller.Category_update)
+			r.DELETE("/categories/:id", controller.Category_delete)
 
 			r.Run() // listen and serve on 0.0.0.0:8080
 		}
