@@ -20,6 +20,7 @@ import (
 			r.GET("/categories", controller.Category_index)
 			r.GET("/categories/:id", controller.Category_show)
 			r.POST("/categories", controller.Category_create)
+			r.PUT("/categories/:id", controller.Category_update)
 
 			r.Run() // listen and serve on 0.0.0.0:8080
 		}

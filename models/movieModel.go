@@ -6,13 +6,13 @@ import (
 
 type Movies  struct {
 	gorm.Model
-	Title string
-	Synopsis string
-	Body string
-	Category_id uint
-	Price string
-	Year string
-	View uint
-	Image string
+	Title string `json:"title"`
+	Synopsis string `json:"synopsis"`
+	Body string `json:"body"`
+	Category_id uint `json:"category_id"`
+	Price string `json:"price"`
+	Year string `json:"year"`
+	View uint   `json:"view_movie"`
+	Image string `json:"img_url"`
 
 }
