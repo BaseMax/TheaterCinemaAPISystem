@@ -14,5 +14,6 @@ type Movies  struct {
 	Year string `json:"year"`
 	View uint   `json:"view_movie"`
 	Image string `json:"img_url"`
+	Actived bool `json:"active"`
 
 }
