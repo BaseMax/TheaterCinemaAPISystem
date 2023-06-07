@@ -12,6 +12,7 @@ type Movies  struct {
 	Category_id uint `json:"category_id"`
 	Price string `json:"price"`
 	Year string `json:"year"`
+	Minutes uint `json:"minutes"`
 	View uint   `json:"view_movie"`
 	Image string `json:"img_url"`
 	Actived bool `json:"active"`

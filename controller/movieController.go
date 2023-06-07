@@ -35,10 +35,11 @@ func Movies_create(c *gin.Context){
 			Price string
 			Small_body string
 			Actived bool
+			Minutes uint
 		}
 		c.Bind(&body)
 
-	movies:= models.Movies{Title:body.Title,Synopsis: body.Small_body ,Body:body.Body,Year:body.Year,Category_id: body.Category_id,Price: body.Price, View: 1,Actived: body.Actived }
+	movies:= models.Movies{Title:body.Title,Synopsis: body.Small_body,Minutes: body.Minutes ,Body:body.Body,Year:body.Year,Category_id: body.Category_id,Price: body.Price, View: 1,Actived: body.Actived }
 
 	res :=initializers.DB.Create(&movies);
 	if res!=nil {
@@ -85,6 +86,7 @@ func Movies_update(c *gin.Context){
 			Category_id uint
 			Price string
 			Actived bool
+			Minutes uint
 		}
 		c.Bind(&body)
 		//find Movies 
@@ -98,6 +100,7 @@ func Movies_update(c *gin.Context){
 			Price: body.Price,
 			Actived: body.Actived,
 			Category_id: body.Category_id,
+			Minutes: body.Minutes,
 
 		})
 
@@ -158,7 +161,6 @@ func Movies_active(c *gin.Context){
 		"status":true,
 		"message": "delete data id : "+id,
 		"data":movie.Actived,
-	
 	})
 	
 }
