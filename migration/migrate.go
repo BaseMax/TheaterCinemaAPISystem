@@ -12,4 +12,5 @@ func init() {
 func main() {
 	initializers.DB.AutoMigrate(&models.Categories{})
 	initializers.DB.AutoMigrate(&models.Movies{})
+	initializers.DB.AutoMigrate(&models.Halls{})
 }
