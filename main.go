@@ -33,5 +33,13 @@ import (
 			r.DELETE("movies/:id",controller.Movies_delete)
 			r.PATCH("movies/:id/active",controller.Movies_active)
 
-			r.Run() // listen and serve on 0.0.0.0:8080
+
+			//halls
+			r.GET("/halls", controller.Hall_index)
+			r.GET("/halls/:id", controller.Hall_show)
+			r.POST("/halls", controller.Hall_create)
+			r.PUT("/halls/:id", controller.Hall_update)
+			r.DELETE("/halls/:id", controller.Hall_delete)
+
+			r.Run()
 		}
