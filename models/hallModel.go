@@ -10,5 +10,5 @@ type Halls  struct {
 	Body string `json:"body"`
 	Span uint  `json:"span"`
 	Active bool `json:"active"`
-	
+	Movies []Movies `gorm:"many2many:MOViE_Hall;"`
 }
