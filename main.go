@@ -41,5 +41,9 @@ import (
 			r.PUT("/halls/:id", controller.Hall_update)
 			r.DELETE("/halls/:id", controller.Hall_delete)
 
+			//schedule
+			r.GET("/movie/:Id/schedule", controller.Schedule_index)
+			r.POST("/movie/:Id/schedule", controller.Schedule_create)
+
 			r.Run()
 		}

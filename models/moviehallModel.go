@@ -7,7 +7,9 @@ import (
 type MOViE_Hall struct {
 	gorm.Model
 	Hall_ID Halls  `gorm:"primaryKey"`
-	Movie_id Movies `gorm:"primaryKey"`
+	Movie_ID Movies `gorm:"primaryKey"`
+	Hall_id	uint
+	Movie_id uint
 	Year_start string
     Month_start string
 	Day_start string

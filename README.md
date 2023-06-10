@@ -136,7 +136,7 @@ The Theater and Cinema System is open-source software licensed under the GPL-3.0
 
 ## Authors
 
-- ...
+- KhaleghiDev
 - Max Base
 
 Copyright 2023, Max Base
