@@ -1,9 +1,6 @@
 package test
 
 import (
-	"fmt"
-	"io"
-	"io/ioutil"
 	"net/http"
 	"testing"
 
@@ -16,68 +13,37 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 func init()  {
+
 	initializers.LoadEnvVarables()
 	initializers.ConectToDb()
 	
 	}
-func TestPingRoute(t *testing.T) {
-	r := gin.Default()
+  func TestCategoryIndex(t *testing.T) {
+    // Create a new HTTP request
+    req, err := http.NewRequest("GET", "/categories", nil)
+    if err != nil {
+        t.Fatal(err)
+    }
 
+    // Create a new HTTP response recorder
+    rr := httptest.NewRecorder()
 
-  // Handlers for testing
-  r.GET("/categories", controller.Category_index)
+    // Create a new gin Engine instance
+    r := gin.Default()
 
-  // Setup the router
-  mockResponse := `{
-    "data": [
-        {
-            "ID": 1,
-            "CreatedAt": "2023-06-05T09:01:02.023Z",
-            "UpdatedAt": "2023-06-05T09:01:02.023Z",
-            "DeletedAt": null,
-            "title": "sad",
-            "slug": "sad",
-            "parint_id": 0
-        },
-        {
-            "ID": 2,
-            "CreatedAt": "2023-06-05T09:07:25.321Z",
-            "UpdatedAt": "2023-06-05T16:43:56.454Z",
-            "DeletedAt": null,
-            "title": "دسته بندی شماره 2",
-            "slug": "دسته_بندی_جدید",
-            "parint_id": 0
-        },
-        {
-            "ID": 3,
-            "CreatedAt": "2023-06-05T09:07:39.331Z",
-            "UpdatedAt": "2023-06-05T09:07:39.331Z",
-            "DeletedAt": null,
-            "title": "sad",
-            "slug": "sad",
-            "parint_id": 0
-        },
-        {
-            "ID": 4,
-            "CreatedAt": "2023-06-05T09:09:00.366Z",
-            "UpdatedAt": "2023-06-05T09:09:00.366Z",
-            "DeletedAt": null,
-            "title": "",
-            "slug": "",
-            "parint_id": 0
-        }
-    ],
-    "status": true
-}`
+    // Register the Category_index function as the handler for the GET /categories route
+    r.GET("/categories", controller.Category_index)
 
-  req, _ := http.NewRequest("GET", "/categories", nil)
-  fmt.Print("hi",req)
-  w := httptest.NewRecorder()
-  r.ServeHTTP(w, req)
-fmt.Println(w)
-  responseData, _ := ioutil.ReadAll(w.Body)
-  assert.Equal(t, mockResponse, string(responseData))
-  assert.Equal(t, http.StatusOK, w.Code)
+    // Call the handler function by passing the request and response recorder
+    r.ServeHTTP(rr, req)
 
+    // Check that the HTTP status code is 200 OK
+    assert.Equal(t, http.StatusOK, rr.Code)
 
+    // Check that the response body contains the expected JSON data
+    expected := `{
+        
+        "status": true
+    }`
+    assert.JSONEq(t, expected, rr.Body.String())
 }

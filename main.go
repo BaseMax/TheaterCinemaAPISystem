@@ -11,6 +11,7 @@ import (
 		initializers.LoadEnvVarables()
 		initializers.ConectToDb()
 		
+		
 		}
 
 		func main() {
@@ -44,6 +45,11 @@ import (
 			//schedule
 			r.GET("/movie/:Id/schedule", controller.Schedule_index)
 			r.POST("/movie/:Id/schedule", controller.Schedule_create)
+
+			r.POST("/register",controller.Register_auth)
+
+			// ایجاد یک روت برای بازیابی رمز عبور کاربر
+			r.POST("/forgot_password", controller.ForgotPasswordHandler_auth)
 
 			r.Run()
 		}
