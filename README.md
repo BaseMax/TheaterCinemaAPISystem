@@ -81,6 +81,16 @@ Set up the database:
 ```bash
 go run main.go
 ```
+**Run the test application:**
+
+```bash
+cd test && go test
+```
+**Run the migrate application:**
+
+```bash
+go run .\migration\migrate.go
+```
 
 **Access the application:**
 
@@ -116,6 +126,14 @@ API routes for your Theater and Cinema System:
 
 - `POST /movies/{movieId}/schedule`: Set the time and date for a movie.
 - `GET /movies/{movieId}/schedule`: Retrieve the schedule for a movie.
+### user Login and Register Schedule Routes 
+
+- `POST /auth/login `: Login to Website use jwt.
+- `POST /auth/register `: register to Website User.
+- `POST /auth/fargetPassword `: fargetpassword user and send email  .
+- `GET  /auth/profile/{id}`: show profile user .
+
+
 
 In addition to the API routes, you'll need to enforce the following rules:
 
