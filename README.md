@@ -84,7 +84,7 @@ go run main.go
 **Run the test application:**
 
 ```bash
-cd test && go test
+cd test &&  go test
 ```
 **Run the migrate application:**
 
@@ -131,10 +131,12 @@ API routes for your Theater and Cinema System:
 - `POST /auth/login `: Login to Website use jwt.
 - `POST /auth/register `: register to Website User.
 - `POST /auth/fargetPassword `: fargetpassword user and send email  .
-- `GET  /auth/profile/{id}`: show profile user .
 
-### dashbord Routes 
 
+### admin Routes 
+
+- `POST /api/admin ` :group url
+- `POST /profile `: show profile user.
 - `POST /dashbord `: count all usecse projeact.
 
 
