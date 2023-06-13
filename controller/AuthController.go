@@ -1,47 +1,70 @@
 package controller
 
 import (
-	"TheaterCinemaAPISystem/initializers"
 	"TheaterCinemaAPISystem/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-
 type RegisterInput struct {
 	Fullname string `json:"fullname" binding:"required"`
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }
+
 func Register_auth(c *gin.Context) {
 	//Todo: validation data user
 	// دریافت اطلاعات فرم ثبت نام کاربر
 	var input RegisterInput
 	if err := c.ShouldBindJSON(&input); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	// چک کردن اینکه کاربر با این نام در سیستم وجود ندارد
-	var existingUser models.User
-	if err := initializers.DB.Where("username = ?", user.Username).First(&existingUser).Error; err == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "User already exists"})
+	u := models.User{}
+
+	u.Username = input.Username
+	u.Password = input.Password
+
+	_, err := u.SaveUser()
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	//hash password to database
 
-	//save data
-
-	//send response user
+	c.JSON(http.StatusOK, gin.H{"message": "registration success"})
 
 }
-func Login_auth(c *gin.Context) {
+
+type LoginInput struct {
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
+}
+
+func Login_auth(c *gin.Context)  {
 
 	//Todo: validation data user
+	var input LoginInput
 	//check user to system
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return 
+	}
+	u := models.User{}
+
+	u.Username = input.Username
+	u.Password = input.Password
 	//create token
+	token, err := models.LoginCheck(u.Username, u.Password)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return 
+	}
+
 	//send responce data user
+	c.JSON(http.StatusOK, gin.H{"token":token})
 
 }
 func ForgotPassword_auth(c *gin.Context) {
@@ -56,11 +79,10 @@ func ForgotPassword_auth(c *gin.Context) {
 }
 func CheackVerifyEmail(c *gin.Context) {
 
-// check url
-// html password
+	// check url
+	// html password
 
 }
 func Profile_auth(c *gin.Context) {
-// get id user or token
+	// get id user or token
 }
-
