@@ -6,50 +6,47 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
-	
-		func init()  {
-		initializers.LoadEnvVarables()
-		initializers.ConectToDb()
-		
-		
-		}
 
-		func main() {
-	
-		
-			r := gin.Default()
-			// max  memory 3
-			r.MaxMultipartMemory = 3 << 20
-			// category
-			r.GET("/categories", controller.Category_index)
-			r.GET("/categories/:id", controller.Category_show)
-			r.POST("/categories", controller.Category_create)
-			r.PUT("/categories/:id", controller.Category_update)
-			r.DELETE("/categories/:id", controller.Category_delete)
-			//movies
-			r.GET("/movies", controller.Movies_index)
-			r.POST("/movies", controller.Movies_create)
-			r.PUT("movies/:id",controller.Movies_update)
-			r.GET("movies/:id",controller.Movies_show)
-			r.DELETE("movies/:id",controller.Movies_delete)
-			r.PATCH("movies/:id/active",controller.Movies_active)
+func init() {
+	initializers.LoadEnvVarables()
+	initializers.ConectToDb()
 
 
-			//halls
-			r.GET("/halls", controller.Hall_index)
-			r.GET("/halls/:id", controller.Hall_show)
-			r.POST("/halls", controller.Hall_create)
-			r.PUT("/halls/:id", controller.Hall_update)
-			r.DELETE("/halls/:id", controller.Hall_delete)
+}
 
-			//schedule
-			r.GET("/movie/:Id/schedule", controller.Schedule_index)
-			r.POST("/movie/:Id/schedule", controller.Schedule_create)
+func main() {
+	r := gin.Default()
+	// max  memory 3
+	r.MaxMultipartMemory = 3 << 20
+	// category
+	r.GET("/categories", controller.Category_index)
+	r.GET("/categories/:id", controller.Category_show)
+	r.POST("/categories", controller.Category_create)
+	r.PUT("/categories/:id", controller.Category_update)
+	r.DELETE("/categories/:id", controller.Category_delete)
+	//movies
+	r.GET("/movies", controller.Movies_index)
+	r.POST("/movies", controller.Movies_create)
+	r.PUT("movies/:id", controller.Movies_update)
+	r.GET("movies/:id", controller.Movies_show)
+	r.DELETE("movies/:id", controller.Movies_delete)
+	r.PATCH("movies/:id/active", controller.Movies_active)
 
-			r.POST("/register",controller.Register_auth)
+	//halls
+	r.GET("/halls", controller.Hall_index)
+	r.GET("/halls/:id", controller.Hall_show)
+	r.POST("/halls", controller.Hall_create)
+	r.PUT("/halls/:id", controller.Hall_update)
+	r.DELETE("/halls/:id", controller.Hall_delete)
 
-			// ایجاد یک روت برای بازیابی رمز عبور کاربر
-			r.POST("/forgot_password", controller.ForgotPasswordHandler_auth)
+	//schedule
+	r.GET("/movie/:Id/schedule", controller.Schedule_index)
+	r.POST("/movie/:Id/schedule", controller.Schedule_create)
 
-			r.Run()
-		}
+	r.POST("/register", controller.Register_auth)
+
+	// ایجاد یک روت برای بازیابی رمز عبور کاربر
+	r.POST("/forgot_password", controller.ForgotPasswordHandler_auth)
+
+	r.Run()
+}
