@@ -3,6 +3,7 @@ package main
 import (
 	"TheaterCinemaAPISystem/controller"
 	"TheaterCinemaAPISystem/initializers"
+	"TheaterCinemaAPISystem/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
@@ -45,12 +46,15 @@ func main() {
 
 	r.POST("/auth/register", controller.Register_auth)
 	r.POST("/auth/login", controller.Login_auth)
-	r.GET("/auth/profile/:id", controller.Profile_auth)
+	
 	// ایجاد یک روت برای بازیابی رمز عبور کاربر
 	r.POST("/auth/forgot_password", controller.ForgotPassword_auth)
 
-
-	r.POST("/auth/dashbord", controller.Dashbord)
+	admin := r.Group("/api/admin")
+	admin.POST("/dashbord", controller.Dashbord)
+	admin.GET("/profile", controller.Profile_auth)
+	admin.Use(middlewares.JwtAuthMiddleware())
+	
 
 	r.Run()
 }

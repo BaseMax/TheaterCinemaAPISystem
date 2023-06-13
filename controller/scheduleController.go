@@ -11,7 +11,7 @@ import (
 * ----show  all category  resoult json 
 */
 func Schedule_index(c *gin.Context) {
-		var moviehall []models.MOViE_Hall
+		var moviehall []models.Movie_Hall
 		initializers.DB.Find(&moviehall)
 	
 	c.JSON(200, gin.H{
@@ -34,7 +34,7 @@ func Schedule_create(c *gin.Context){
 		}
 		c.Bind(&body)
 
-		cat:= models.MOViE_Hall{Hall_id:body.Hall_id ,Movie_id:body.Movie_id }
+		cat:= models.Movie_Hall{Hall_id:body.Hall_id ,Movie_id:body.Movie_id }
 		res :=initializers.DB.Create(&cat);
 		if res!=nil {
 			c.Status(400);
