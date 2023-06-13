@@ -43,10 +43,14 @@ func main() {
 	r.GET("/movie/:Id/schedule", controller.Schedule_index)
 	r.POST("/movie/:Id/schedule", controller.Schedule_create)
 
-	r.POST("/register", controller.Register_auth)
-
+	r.POST("/auth/register", controller.Register_auth)
+	r.POST("/auth/login", controller.Login_auth)
+	r.GET("/auth/profile/:id", controller.Profile_auth)
 	// ایجاد یک روت برای بازیابی رمز عبور کاربر
-	r.POST("/forgot_password", controller.ForgotPasswordHandler_auth)
+	r.POST("/auth/forgot_password", controller.ForgotPassword_auth)
+
+
+	r.POST("/auth/dashbord", controller.Dashbord)
 
 	r.Run()
 }

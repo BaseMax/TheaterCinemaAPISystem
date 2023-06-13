@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterHandler(c *gin.Context) {
+func Register_auth(c *gin.Context) {
     // دریافت اطلاعات فرم ثبت نام کاربر
     var user models.User
     if err := c.ShouldBindJSON(&user); err != nil {
@@ -23,11 +23,15 @@ func RegisterHandler(c *gin.Context) {
         return
     }
 
-    // رمزگذاری رمز عبور با الگوریتم bcrypt
-    hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": "Could not process password"})
-        return
-    }
+
+
+}
+func Login_auth(c *gin.Context){
+
+}
+func ForgotPassword_auth(c *gin.Context){
+
+}
+func Profile_auth(c *gin.Context){
 
 }

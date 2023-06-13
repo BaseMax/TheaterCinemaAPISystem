@@ -73,7 +73,7 @@ Set up the database:
 
 **Configure the application:**
 
-- Rename the `config.example.json` file to `config.json`. (or `.env` file)
+- Rename the `.env_sample` file to `.env`.
 - Modify the values in config file to match your database configuration.
 
 **Run the application:**
@@ -126,13 +126,16 @@ API routes for your Theater and Cinema System:
 
 - `POST /movies/{movieId}/schedule`: Set the time and date for a movie.
 - `GET /movies/{movieId}/schedule`: Retrieve the schedule for a movie.
-### user Login and Register Schedule Routes 
+### user Routes 
 
 - `POST /auth/login `: Login to Website use jwt.
 - `POST /auth/register `: register to Website User.
 - `POST /auth/fargetPassword `: fargetpassword user and send email  .
 - `GET  /auth/profile/{id}`: show profile user .
 
+### dashbord Routes 
+
+- `POST /dashbord `: count all usecse projeact.
 
 
 In addition to the API routes, you'll need to enforce the following rules:
