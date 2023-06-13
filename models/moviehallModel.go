@@ -4,12 +4,10 @@ import (
 	"gorm.io/gorm"
 )
 
-type MOViE_Hall struct {
+type Movie_Hall struct {
 	gorm.Model
-	Hall_ID Halls  `gorm:"primaryKey"`
-	Movie_ID Movies `gorm:"primaryKey"`
-	Hall_id	uint
-	Movie_id uint
+	Hall_id	uint `gorm:"primaryKey"`
+	Movie_id uint `gorm:"primaryKey"`
 	Year_start string
     Month_start string
 	Day_start string
