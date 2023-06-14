@@ -43,7 +43,7 @@ func main() {
 	//schedule
 	r.GET("/movie/:Id/schedule", controller.Schedule_index)
 	r.POST("/movie/:Id/schedule", controller.Schedule_create)
-
+	//auth
 	r.POST("/auth/register", controller.Register_auth)
 	r.POST("/auth/login", controller.Login_auth)
 	
